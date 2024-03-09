@@ -1,0 +1,36 @@
+@import url("./reset.css");
+
+:root {
+  --image-background: url("/images/background-desktop.svg");
+  --color-dark-navy: #261676;
+  --color-blue: #2463ff;
+  --color-white: #ffffff;
+  --heading-xl: 8.5rem;
+  --heading-l: 5.5rem;
+  --heading-m: 3rem;
+  --heading-s: 2rem;
+  --body: 1.6rem;
+
+  font-size: 16px;
+}
+
+body {
+  background-image: var(--image-background);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (width <= 769px) {
+  :root {
+    --image-background: url("/images/background-tablet.svg");
+  }
+}
+
+@media (width <= 640px) {
+  :root {
+    --image-background: url("/images/background-mobile.svg");
+  }
+}
