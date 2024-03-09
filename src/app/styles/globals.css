@@ -2,9 +2,14 @@
 
 :root {
   --image-background: url("/images/background-desktop.svg");
-  --color-dark-navy: #261676;
-  --color-blue: #2463ff;
-  --color-white: #ffffff;
+  --color-dark-navy: 38, 22, 118;
+  --color-blue: 36, 99, 255;
+  --color-blue-hover: 90, 138, 255;
+  --color-blue-gradient: 113, 153, 255;
+  --color-blue-gradient-hover: 145, 175, 250;
+  --color-pink: 254, 113, 254;
+  --color-pink-hover: 231, 144, 231;
+  --color-white: 255, 255, 255;
   --heading-xl: 8.5rem;
   --heading-l: 5.5rem;
   --heading-m: 3rem;
@@ -21,6 +26,77 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
+  margin: 1rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 50px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn__container1 {
+  border-radius: 50px;
+  padding: 0.12rem 0.2rem 0rem 0.1rem;
+  margin: 0.5px 1px 2.8px 0.6px;
+}
+.btn__container2 {
+  border-radius: 50px;
+  width: 100%;
+  padding: 0.2rem 1.7rem;
+  margin: 1px 1px 0px 1px;
+}
+
+.btn-blue {
+  @apply btn;
+  background-color: rgba(var(--color-dark-navy), 1);
+  color: rgba(var(--color-white), 1);
+}
+
+.btn-blue__container__1 {
+  @apply btn__container1;
+  background-color: rgba(var(--color-blue-hover), 1);
+}
+
+.btn-blue__container__2 {
+  @apply btn__container2;
+  background-color: rgba(var(--color-blue), 0.6);
+}
+
+.btn-blue__container__1:hover {
+  background-color: rgba(var(--color-blue-hover), 0.8);
+}
+.btn-blue__container__2:hover {
+  background-color: rgba(var(--color-blue-hover), 0.8);
+}
+
+.btn-pink {
+  @apply btn;
+  background-color: rgba(var(--color-dark-navy), 1);
+  color: rgba(var(--color-white), 1);
+}
+
+.btn-pink__container__1 {
+  @apply btn__container1;
+  background-color: rgba(var(--color-pink), 0.7);
+}
+
+.btn-pink__container__2 {
+  @apply btn__container2;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-pink), 1) 50%,
+    rgba(var(--color-blue-gradient), 1) 100%
+  );
+}
+
+.btn-pink__container__2:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-pink-hover), 1) 50%,
+    rgba(var(--color-blue-gradient-hover), 1) 100%
+  );
 }
 
 @media (width <= 769px) {

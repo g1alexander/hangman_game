@@ -1,9 +1,14 @@
-import Image from "next/image";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hi
+    <main>
+      <Button color="btn-blue">How to play</Button>
+
+      <h1>-</h1>
+      <div>
+        <Button color="btn-pink">How to play</Button>
+      </div>
     </main>
   );
 }
