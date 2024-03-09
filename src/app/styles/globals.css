@@ -49,18 +49,15 @@ body {
 }
 
 .btn-blue {
-  @apply btn;
   background-color: rgba(var(--color-dark-navy), 1);
   color: rgba(var(--color-white), 1);
 }
 
 .btn-blue__container__1 {
-  @apply btn__container1;
   background-color: rgba(var(--color-blue-hover), 1);
 }
 
 .btn-blue__container__2 {
-  @apply btn__container2;
   background-color: rgba(var(--color-blue), 0.6);
 }
 
@@ -72,18 +69,15 @@ body {
 }
 
 .btn-pink {
-  @apply btn;
   background-color: rgba(var(--color-dark-navy), 1);
   color: rgba(var(--color-white), 1);
 }
 
 .btn-pink__container__1 {
-  @apply btn__container1;
   background-color: rgba(var(--color-pink), 0.7);
 }
 
 .btn-pink__container__2 {
-  @apply btn__container2;
   background: linear-gradient(
     180deg,
     rgba(var(--color-pink), 1) 50%,

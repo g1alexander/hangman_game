@@ -5,9 +5,11 @@ interface ButtonProps {
 
 export default function Button({ children, color }: ButtonProps) {
   return (
-    <button className={color}>
-      <div className={`${color}__container__1`}>
-        <div className={`${color}__container__2`}>{children}</div>
+    <button className={`${color} btn`}>
+      <div className={`${color}__container__1 btn__container1`}>
+        <div className={`${color}__container__2 btn__container2`}>
+          {children}
+        </div>
       </div>
     </button>
   );
