@@ -30,6 +30,37 @@ body {
   margin: 1rem;
 }
 
+.playable-letter {
+  border: none;
+  border-radius: 6.5px;
+  text-transform: uppercase;
+  background-color: rgba(var(--color-dark-navy), 1);
+  color: rgba(var(--color-white), 1);
+}
+.playable-letter__container1 {
+  border-radius: 6.5px;
+  padding: 0.04rem 0.14rem 0rem 0rem;
+  margin: 0.5px 1px 1px 0.6px;
+  background-color: rgba(var(--color-blue-hover), 1);
+}
+.playable-letter__container2 {
+  border-radius: 6.5px;
+  width: 100%;
+  padding: 0px 5px;
+  margin: 0.5px 1px 0px 1px;
+  background-color: rgba(var(--color-blue), 0.6);
+}
+
+.playable-letter__container1.disabled {
+  background-color: rgba(var(--color-dark-navy), 0.6);
+  height: 1.5rem;
+  width: 1.2rem;
+}
+
+.playable-letter__container2.disabled {
+  background-color: rgba(var(--color-dark-navy), 0.6);
+}
+
 .btn {
   border: none;
   border-radius: 50px;
