@@ -30,6 +30,19 @@ body {
   margin: 1rem;
 }
 
+.selectable-category {
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 0.5rem 0rem;
+  color: rgba(var(--color-white), 1);
+  background-color: rgba(var(--color-blue, 1));
+}
+.selectable-category:hover {
+  background-color: rgba(var(--color-blue-hover), 1);
+}
+
 .keyboard-letter {
   border: none;
   border-radius: 6.5px;

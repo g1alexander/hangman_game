@@ -1,6 +1,7 @@
 import Button from "./components/Button";
 import PlayableLetter from "./components/PlayableLetter";
 import KeyboardLetter from "./components/KeyboardLetter";
+import SelectableCategory from "./components/SelectableCategory";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
       <h1>-</h1>
 
       <KeyboardLetter isActive={true}>A</KeyboardLetter>
+      <h1>-</h1>
+
+      <SelectableCategory>Movies</SelectableCategory>
     </main>
   );
 }
