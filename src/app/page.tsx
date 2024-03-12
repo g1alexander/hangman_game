@@ -1,5 +1,6 @@
 import Button from "./components/Button";
 import PlayableLetter from "./components/PlayableLetter";
+import KeyboardLetter from "./components/KeyboardLetter";
 
 export default function Home() {
   return (
@@ -11,6 +12,8 @@ export default function Home() {
 
       <PlayableLetter isActive={true}>A</PlayableLetter>
       <h1>-</h1>
+
+      <KeyboardLetter isActive={true}>A</KeyboardLetter>
     </main>
   );
 }

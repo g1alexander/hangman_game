@@ -30,6 +30,25 @@ body {
   margin: 1rem;
 }
 
+.keyboard-letter {
+  border: none;
+  border-radius: 6.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgba(var(--color-white), 1);
+  color: rgba(var(--color-dark-navy), 1);
+  padding: 0.1rem 0.5rem;
+}
+.keyboard-letter.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+.keyboard-letter:hover {
+  background-color: rgba(var(--color-blue), 1);
+  color: rgba(var(--color-white), 1);
+}
+
 .playable-letter {
   border: none;
   border-radius: 6.5px;
