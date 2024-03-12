@@ -10,6 +10,7 @@
   --color-pink: 254, 113, 254;
   --color-pink-hover: 231, 144, 231;
   --color-white: 255, 255, 255;
+  --color-purple: 136, 125, 192;
   --heading-xl: 8.5rem;
   --heading-l: 5.5rem;
   --heading-m: 3rem;
@@ -26,8 +27,34 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 1rem;
+}
+
+.tutorial-card {
+  background-color: rgba(var(--color-white), 1);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tutorial-card h2 {
+  color: rgba(var(--color-blue), 1);
+  font-size: 2rem;
+}
+
+.tutorial-card h3 {
+  color: rgba(var(--color-dark-navy), 1);
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  margin-top: 0.6rem;
+}
+
+.tutorial-card p {
+  color: rgba(var(--color-purple), 1);
+  font-size: small;
+  padding: 0 0.4rem;
 }
 
 .selectable-category {
