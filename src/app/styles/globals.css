@@ -30,6 +30,26 @@ body {
   /* height: 100vh; */
   margin: 1rem;
 }
+.how-to-play {
+  height: 100vh;
+  margin: 0 2rem;
+}
+.how-to-play header {
+  display: flex;
+  height: 20%;
+  justify-content: space-between;
+  align-items: center;
+}
+.how-to-play header button {
+  width: auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -262,10 +282,40 @@ body {
   :root {
     --image-background: url("/images/background-tablet.svg");
   }
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tutorial-card div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .tutorial-card p {
+    text-align: start;
+    padding: 0;
+  }
 }
 
 @media (width <= 640px) {
   :root {
     --image-background: url("/images/background-mobile.svg");
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tutorial-card div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .tutorial-card p {
+    text-align: start;
+    padding: 0;
+  }
+  .tutorial-card {
+    padding: 1rem 1.8rem;
+  }
+  .how-to-play {
+    margin: 0;
   }
 }
