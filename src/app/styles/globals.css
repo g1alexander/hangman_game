@@ -49,6 +49,12 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1rem;
 }
+.grid-category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+}
 
 .container {
   display: flex;
@@ -282,6 +288,10 @@ body {
   :root {
     --image-background: url("/images/background-tablet.svg");
   }
+  .grid-category {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
   .grid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -299,6 +309,10 @@ body {
 @media (width <= 640px) {
   :root {
     --image-background: url("/images/background-mobile.svg");
+  }
+  .grid-category {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
   .grid {
     grid-template-columns: 1fr;

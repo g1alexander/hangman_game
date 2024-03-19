@@ -1,6 +1,10 @@
-export default function ButtonPlay() {
+interface ButtonPlayProps {
+  onClick: () => void;
+}
+
+export default function ButtonPlay({ onClick }: ButtonPlayProps) {
   return (
-    <button className="btn-play-blue">
+    <button className="btn-play-blue" onClick={onClick}>
       <div className="btn-play-purple">
         <div className="btn-play">
           <svg
