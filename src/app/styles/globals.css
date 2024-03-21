@@ -30,6 +30,54 @@ body {
   /* height: 100vh; */
   margin: 1rem;
 }
+.game header {
+  display: flex;
+  justify-content: space-between;
+}
+.game header article {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.game header article h1 {
+  color: rgba(var(--color-white), 1);
+  font-size: xx-large;
+}
+
+/* IE and EDGE */
+progress {
+  /* RESETS */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+
+  /* width: 300px; */
+  height: 15px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 2px;
+  color: rgba(var(--color-dark-navy), 1);
+}
+
+/* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
+progress::-webkit-progress-bar {
+  background-color: #fff;
+  padding: 2px;
+  border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+  background-color: rgba(var(--color-dark-navy), 1);
+  border-radius: 20px;
+}
+
+/* MOZILLA FIREFOX */
+progress::-moz-progress-bar {
+  background-color: rgba(var(--color-dark-navy), 1);
+  border-radius: 20px;
+}
+
 .how-to-play {
   height: 100vh;
   margin: 0 2rem;

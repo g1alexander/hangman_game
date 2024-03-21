@@ -24,12 +24,24 @@ export default function PickACategory() {
         />
       </header>
       <section className="grid-category">
-        <SelectableCategory>movies</SelectableCategory>
-        <SelectableCategory>tv shows</SelectableCategory>
-        <SelectableCategory>countries</SelectableCategory>
-        <SelectableCategory>capital cities</SelectableCategory>
-        <SelectableCategory>animals</SelectableCategory>
-        <SelectableCategory>sports</SelectableCategory>
+        <SelectableCategory onClick={() => router.push("/game")}>
+          movies
+        </SelectableCategory>
+        <SelectableCategory onClick={() => router.push("/game")}>
+          tv shows
+        </SelectableCategory>
+        <SelectableCategory onClick={() => router.push("/game")}>
+          countries
+        </SelectableCategory>
+        <SelectableCategory onClick={() => router.push("/game")}>
+          capital cities
+        </SelectableCategory>
+        <SelectableCategory onClick={() => router.push("/game")}>
+          animals
+        </SelectableCategory>
+        <SelectableCategory onClick={() => router.push("/game")}>
+          sports
+        </SelectableCategory>
       </section>
     </main>
   );
