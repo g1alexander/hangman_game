@@ -43,6 +43,24 @@ body {
   color: rgba(var(--color-white), 1);
   font-size: xx-large;
 }
+.grid-letters {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1rem 0.3rem;
+  margin: 1rem 0;
+}
+.playable_letter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.playable_letter button {
+  margin-left: 0.3rem;
+}
 
 /* IE and EDGE */
 progress {
@@ -237,6 +255,8 @@ progress::-moz-progress-bar {
 }
 
 .playable-letter {
+  width: 2rem;
+  height: 3rem;
   border: none;
   border-radius: 6.5px;
   text-transform: uppercase;
@@ -244,22 +264,30 @@ progress::-moz-progress-bar {
   color: rgba(var(--color-white), 1);
 }
 .playable-letter__container1 {
+  width: 2rem;
+  height: 3rem;
   border-radius: 6.5px;
   padding: 0.04rem 0.14rem 0rem 0rem;
   margin: 0.5px 1px 1px 0.6px;
   background-color: rgba(var(--color-blue-hover), 1);
 }
 .playable-letter__container2 {
+  width: 2rem;
+  height: 3rem;
   border-radius: 6.5px;
   width: 100%;
   padding: 0px 5px;
   margin: 0.5px 1px 0px 1px;
   background-color: rgba(var(--color-blue), 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 }
 
 .playable-letter__container1.disabled {
   background-color: rgba(var(--color-dark-navy), 0.6);
-  height: 1.5rem;
+  height: 1rem;
   width: 1.2rem;
 }
 
