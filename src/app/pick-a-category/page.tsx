@@ -3,9 +3,9 @@
 import Image from "next/image";
 import PickACategoryImage from "@public/images/pick_a_category.svg";
 import Back from "@public/images/icon-back.svg";
-import Button from "../components/Button";
+import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
-import SelectableCategory from "../components/SelectableCategory";
+import SelectableCategory from "@/components/SelectableCategory";
 
 export default function PickACategory() {
   const router = useRouter();

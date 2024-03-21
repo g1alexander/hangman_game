@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Button from "../components/Button";
+import Button from "@/components/Button";
 import MenuIcon from "@public/images/icon-menu.svg";
 import lifeGame from "@public/images/icon-heart.svg";
 

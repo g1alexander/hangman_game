@@ -1,11 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-import Button from "./components/Button";
-import ButtonPlay from "./components/ButtonPlay";
+import Button from "@/components/Button";
+import ButtonPlay from "@/components/ButtonPlay";
 import Image from "next/image";
 import logo from "@public/images/logo.svg";
-import Card from "./components/Card";
+import Card from "@/components/Card";
 
 export default function Home() {
   const router = useRouter();
