@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Mouse_Memoirs } from "next/font/google";
-import "@/styles/globals.css";
+import "@/styles/main.css";
 
 const MouseMemoirs = Mouse_Memoirs({
   style: "normal",

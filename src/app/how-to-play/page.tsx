@@ -1,10 +1,10 @@
 "use client";
 
-import TutorialCard from "../components/TutorialCard";
+import TutorialCard from "@/components/TutorialCard";
 import Image from "next/image";
 import HowToPlayImage from "@public/images/how_to_play.svg";
 import Back from "@public/images/icon-back.svg";
-import Button from "../components/Button";
+import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
 
 export default function HowToPlay() {
@@ -13,10 +13,16 @@ export default function HowToPlay() {
   return (
     <main className="how-to-play">
       <header>
-        <Button onClick={() => router.back()} color="btn-pink">
+        <Button onClick={() => router.back()} color="btn-navigation">
           <Image src={Back} alt="back" width={20} height={40} priority />
         </Button>
-        <Image src={HowToPlayImage} alt="HowToPlay" width={200} height={200} />
+        <Image
+          src={HowToPlayImage}
+          alt="HowToPlay"
+          width={200}
+          height={200}
+          className="how-to-play-title"
+        />
       </header>
       <section className="grid">
         <TutorialCard

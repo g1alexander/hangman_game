@@ -15,10 +15,17 @@ export default function Home() {
       <Card>
         <Image priority src={logo} alt="Hangman Game" className="card-image" />
         <span></span>
+        <span></span>
+        <span></span>
         <ButtonPlay onClick={() => router.push("/pick-a-category")} />
-        <Button onClick={() => router.push("/how-to-play")} color="btn-blue">
+
+        <Button
+          onClick={() => router.push("/how-to-play")}
+          color="btn-blue btn"
+        >
           How to play
         </Button>
+        <span></span>
       </Card>
     </main>
   );

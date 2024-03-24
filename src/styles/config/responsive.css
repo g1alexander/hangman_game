@@ -1,0 +1,35 @@
+@media (width <= 2560px) {
+  .card {
+    width: 45%;
+    height: 48%;
+  }
+  .how-to-play header {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (width <= 769px) {
+  :root {
+    --image-background: url("/images/background-tablet.svg");
+  }
+  .card {
+    width: 80%;
+    height: 50%;
+  }
+  .how-to-play header {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width <= 640px) {
+  :root {
+    --image-background: url("/images/background-mobile.svg");
+  }
+  .card {
+    width: 90%;
+    height: 55%;
+  }
+  .how-to-play header {
+    grid-template-columns: 1fr 1fr;
+  }
+}

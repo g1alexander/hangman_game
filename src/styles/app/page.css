@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.card {
+  background-color: rgba(var(--color-dark-navy), 0.8);
+  border-radius: 35px;
+  height: 70vh;
+  padding: 0.2rem 0.2rem 0.8rem 0.2rem;
+  position: sticky;
+  width: 45vh;
+}
+.card-2 {
+  background-color: rgba(var(--color-blue), 0.8);
+  border-radius: 35px;
+  height: 100%;
+  padding: 0.8rem 0.2rem 0rem 0.2rem;
+}
+.card-3 {
+  background-color: rgba(var(--color-dark-navy), 0.3);
+  border-radius: 35px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card-image {
+  width: 80%;
+  position: absolute;
+  top: -75px;
+  left: 10%;
+}

@@ -1,0 +1,16 @@
+.how-to-play {
+  height: 100vh;
+  margin: 0 2rem;
+}
+.how-to-play header {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.how-to-play header button {
+  justify-items: start;
+}
+.how-to-play-title {
+  justify-self: center;
+}
