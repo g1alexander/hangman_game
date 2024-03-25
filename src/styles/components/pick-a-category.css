@@ -1,0 +1,19 @@
+.selectable-category {
+  position: relative;
+  border: none;
+  padding: 3rem 4rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  border-bottom: 3px solid rgba(var(--color-dark-navy), 1);
+  border-left: 3px solid rgba(var(--color-dark-navy), 1);
+  border-right: 3px solid rgba(var(--color-dark-navy), 1);
+}
+
+.grid-category {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}

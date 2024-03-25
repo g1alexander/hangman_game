@@ -1,0 +1,70 @@
+:root {
+  --image-background: url("/images/background-desktop.svg");
+  --color-black: 0, 0, 0;
+  --color-dark-navy: 38, 22, 118;
+  --color-blue: 36, 99, 255;
+  --color-blue-hover: 90, 138, 255;
+  --color-blue-border: 60, 116, 255;
+  --color-blue-gradient: 113, 153, 255;
+  --color-blue-gradient-hover: 145, 175, 250;
+  --color-blue-btn-play: 35, 48, 65;
+  --color-pink: 254, 113, 254;
+  --color-pink-hover: 231, 144, 231;
+  --color-white: 255, 255, 255;
+  --color-purple: 136, 125, 192;
+  --color-purple-2: 198, 67, 252;
+  --heading-xl: 8.5rem;
+  --heading-l: 5.5rem;
+  --heading-m: 3rem;
+  --heading-s: 2rem;
+  --body: 1.6rem;
+
+  font-size: 16px;
+}
+body {
+  background-image: var(--image-background);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.grid-header {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.grid-header button {
+  justify-items: start;
+}
+
+.grid-header-title {
+  justify-self: center;
+}
+
+.modal {
+  position: fixed !important;
+  background-color: rgba(var(--color-black), 0.8);
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.card {
+}

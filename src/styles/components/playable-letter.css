@@ -1,0 +1,17 @@
+.playable_letter {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.playable_letter div {
+  display: flex;
+  gap: 0.8rem;
+  position: relative;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.playable_letter button {
+  width: 4.5rem;
+  height: 5rem;
+  align-items: center;
+}
