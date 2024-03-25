@@ -18,6 +18,8 @@ export default function Modal() {
       <main className="modal">
         <Card>
           <Image
+            width={0}
+            height={0}
             priority
             src={image}
             alt="Hangman Game"

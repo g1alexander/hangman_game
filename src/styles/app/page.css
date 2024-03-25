@@ -29,9 +29,10 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.card-image {
+/* .card-image {
   width: 80%;
+  height: auto;
   position: absolute;
   top: -75px;
   left: 10%;
-}
+} */

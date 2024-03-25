@@ -14,7 +14,14 @@ export default function Home() {
   return (
     <main className="container container-2">
       <Card>
-        <Image priority src={logo} alt="Hangman Game" className="card-image" />
+        <Image
+          width={100}
+          height={100}
+          priority
+          src={logo}
+          alt="Hangman Game"
+          className="card-image"
+        />
         <span></span>
         <span></span>
         <span></span>

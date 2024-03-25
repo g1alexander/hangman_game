@@ -56,6 +56,9 @@
     padding: 0.5rem 2.3rem;
     border-radius: 15px;
   }
+  .card-image {
+    top: -75px;
+  }
 }
 
 @media (width <= 1440px) {
@@ -182,5 +185,8 @@
   .keyboard-letter {
     padding: 0.5rem 0.8rem;
     border-radius: 8px;
+  }
+  .card-image {
+    top: -35px;
   }
 }
