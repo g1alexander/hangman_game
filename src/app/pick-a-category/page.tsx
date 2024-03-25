@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+import Button from "@/components/Button";
+import SelectableCategory from "@/components/SelectableCategory";
+
+import { categories } from "@/helpers/categories";
+
 import PickACategoryImage from "@public/images/pick_a_category.svg";
 import Back from "@public/images/icon-back.svg";
-import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
-import SelectableCategory from "@/components/SelectableCategory";
 
 export default function PickACategory() {
   const router = useRouter();
@@ -25,24 +29,14 @@ export default function PickACategory() {
         />
       </header>
       <section className="grid-category">
-        <SelectableCategory onClick={() => router.push("/game")}>
-          movies
-        </SelectableCategory>
-        <SelectableCategory onClick={() => router.push("/game")}>
-          tv shows
-        </SelectableCategory>
-        <SelectableCategory onClick={() => router.push("/game")}>
-          countries
-        </SelectableCategory>
-        <SelectableCategory onClick={() => router.push("/game")}>
-          capital cities
-        </SelectableCategory>
-        <SelectableCategory onClick={() => router.push("/game")}>
-          animals
-        </SelectableCategory>
-        <SelectableCategory onClick={() => router.push("/game")}>
-          sports
-        </SelectableCategory>
+        {categories.map(({ name, query }, index) => (
+          <SelectableCategory
+            key={index}
+            onClick={() => router.push(`/game?category=${query}`)}
+          >
+            {name}
+          </SelectableCategory>
+        ))}
       </section>
     </main>
   );

@@ -1,12 +1,13 @@
 "use client";
 
-import Card from "./Card";
-import Image from "next/image";
-import Button from "./Button";
 import { useRouter } from "next/navigation";
-
+import Image from "next/image";
 import { useContext } from "react";
+
 import { ModalContext } from "@/context/ModalContext";
+
+import Card from "./Card";
+import Button from "./Button";
 
 export default function Modal() {
   const router = useRouter();
