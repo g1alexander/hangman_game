@@ -8,7 +8,10 @@ export default function SelectableCategory({
   onClick,
 }: SelectableCategoryProps) {
   return (
-    <article className="selectable-category" onClick={onClick}>
+    <article
+      className="selectable-category btn-blue border-radius-30"
+      onClick={onClick}
+    >
       {children}
     </article>
   );

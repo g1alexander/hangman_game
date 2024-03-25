@@ -11,9 +11,9 @@ export default function PickACategory() {
   const router = useRouter();
 
   return (
-    <main className="how-to-play">
-      <header>
-        <Button onClick={() => router.back()} color="btn-pink">
+    <main className="container-2">
+      <header className="grid-header">
+        <Button onClick={() => router.back()} color="btn-navigation">
           <Image src={Back} alt="back" width={20} height={40} priority />
         </Button>
         <Image
@@ -21,6 +21,7 @@ export default function PickACategory() {
           alt="HowToPlay"
           width={200}
           height={200}
+          className="grid-header-title"
         />
       </header>
       <section className="grid-category">

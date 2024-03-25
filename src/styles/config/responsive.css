@@ -33,6 +33,12 @@
   .tutorial-card p {
     font-size: 1.2rem;
   }
+  .grid-category {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .btn {
+    font-size: xx-large;
+  }
 }
 
 @media (width <= 768px) {
@@ -41,6 +47,7 @@
   }
   .container-2 {
     max-width: 85%;
+    min-height: auto;
   }
   .card {
     width: 80%;
@@ -79,6 +86,12 @@
     gap: 0 1.5rem;
     padding: 1.6rem;
   }
+  .grid-category {
+    grid-template-columns: 1fr 1fr;
+  }
+  .btn {
+    font-size: xx-large;
+  }
 }
 
 @media (width <= 640px) {
@@ -87,6 +100,7 @@
   }
   .container-2 {
     max-width: 90%;
+    min-height: auto;
   }
   .card {
     width: 90%;
@@ -113,5 +127,11 @@
   }
   .tutorial-card {
     padding: 1rem 1.8rem;
+  }
+  .grid-category {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    font-size: x-large;
   }
 }

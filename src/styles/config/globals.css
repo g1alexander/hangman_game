@@ -36,3 +36,16 @@ body {
   margin: 0;
   padding: 0;
 }
+.grid-header {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.grid-header button {
+  justify-items: start;
+}
+
+.grid-header-title {
+  justify-self: center;
+}
