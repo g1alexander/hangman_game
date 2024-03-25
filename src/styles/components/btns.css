@@ -6,7 +6,7 @@
   justify-content: center;
   border: none;
   width: 45%;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -105,6 +105,15 @@
 .border-radius-30::after {
   border-radius: 30px;
 }
+.border-radius-50 {
+  border-radius: 50px;
+}
+/* .border-radius-15 {
+  border-radius: 27px;
+}
+.border-radius-13::after {
+  border-radius: 23px;
+} */
 
 .btn-blue:disabled {
   background-color: rgba(var(--color-blue), 0.3);
@@ -127,7 +136,6 @@
 
 .keyboard-letter {
   color: rgba(var(--color-dark-navy), 1);
-  border-radius: 15px;
 }
 .keyboard-letter:hover {
   background-color: rgba(var(--color-blue), 1);

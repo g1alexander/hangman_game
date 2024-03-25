@@ -6,7 +6,10 @@ interface ButtonProps {
 
 export default function Button({ children, color, onClick }: ButtonProps) {
   return (
-    <button onClick={onClick} className={`${color} border-radius-70`}>
+    <button
+      onClick={onClick}
+      className={`${color} border-radius-70 border-radius-50`}
+    >
       {children}
     </button>
   );
