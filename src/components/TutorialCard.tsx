@@ -11,11 +11,9 @@ export default function TutorialCard({
 }: PlayableLetterProps) {
   return (
     <article className="tutorial-card">
-      <div>
-        <h2>{step}</h2>
-        <h3>{title}</h3>
-      </div>
-      <p>{description}</p>
+      <h2 className="tutorial-card-step">{step}</h2>
+      <h3 className="tutorial-card-title">{title}</h3>
+      <p className="tutorial-card-description">{description}</p>
     </article>
   );
 }

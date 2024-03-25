@@ -11,7 +11,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="container">
+    <main className="container container-2">
       <Card>
         <Image priority src={logo} alt="Hangman Game" className="card-image" />
         <span></span>

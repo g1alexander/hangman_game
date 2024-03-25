@@ -1,4 +1,8 @@
 @media (width <= 2560px) {
+  .container-2 {
+    max-width: 85%;
+    margin: 0 auto;
+  }
   .card {
     width: 45%;
     height: 48%;
@@ -6,18 +10,73 @@
   .how-to-play header {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .how-to-play-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .tutorial-card p {
+    padding: 0 0.4rem;
+  }
+  .tutorial-card {
+    grid-template-areas:
+      "step step"
+      "title title"
+      "description description";
+    padding: 1.6rem;
+  }
+  .tutorial-card h2 {
+    font-size: 5rem;
+  }
+  .tutorial-card h3 {
+    font-size: 2.5rem;
+  }
+  .tutorial-card p {
+    font-size: 1.2rem;
+  }
 }
 
-@media (width <= 769px) {
+@media (width <= 768px) {
   :root {
     --image-background: url("/images/background-tablet.svg");
+  }
+  .container-2 {
+    max-width: 85%;
   }
   .card {
     width: 80%;
     height: 50%;
   }
   .how-to-play header {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .how-to-play-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tutorial-card h2 {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+  }
+  .tutorial-card h3 {
+    font-size: xx-large;
+    text-align: start;
+  }
+  .tutorial-card div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .tutorial-card p {
+    text-align: start;
+    padding: 0;
+    font-size: x-large;
+  }
+  .tutorial-card {
+    grid-template-areas:
+      "step title"
+      "step title"
+      "step description";
+    gap: 0 1.5rem;
+    padding: 1.6rem;
   }
 }
 
@@ -25,11 +84,33 @@
   :root {
     --image-background: url("/images/background-mobile.svg");
   }
+  .container-2 {
+    max-width: 90%;
+  }
   .card {
     width: 90%;
     height: 55%;
   }
   .how-to-play header {
     grid-template-columns: 1fr 1fr;
+  }
+  .how-to-play-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tutorial-card div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .tutorial-card p {
+    text-align: start;
+    padding: 0;
+    font-size: small;
+  }
+  .tutorial-card h3 {
+    font-size: large;
+  }
+  .tutorial-card {
+    padding: 1rem 1.8rem;
   }
 }

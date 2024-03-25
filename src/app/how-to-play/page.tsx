@@ -11,7 +11,7 @@ export default function HowToPlay() {
   const router = useRouter();
 
   return (
-    <main className="how-to-play">
+    <main className="how-to-play container-2">
       <header>
         <Button onClick={() => router.back()} color="btn-navigation">
           <Image src={Back} alt="back" width={20} height={40} priority />
@@ -24,7 +24,7 @@ export default function HowToPlay() {
           className="how-to-play-title"
         />
       </header>
-      <section className="grid">
+      <section className="how-to-play-grid">
         <TutorialCard
           step="01"
           title="Choose a category"
