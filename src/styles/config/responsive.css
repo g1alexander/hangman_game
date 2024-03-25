@@ -49,6 +49,19 @@
   .playable_letter div {
     width: 70%;
   }
+  .grid-letters {
+    width: 70%;
+  }
+  .keyboard-letter {
+    padding: 0.5rem 2.3rem;
+    border-radius: 15px;
+  }
+}
+
+@media (width <= 1440px) {
+  .grid-letters {
+    width: 100%;
+  }
 }
 
 @media (width <= 768px) {
@@ -101,6 +114,13 @@
   }
   .btn {
     font-size: xx-large;
+  }
+  .grid-letters {
+    width: 100%;
+  }
+  .keyboard-letter {
+    padding: 0.5rem 1.8rem;
+    border-radius: 15px;
   }
 }
 
@@ -155,5 +175,12 @@
   }
   .playable_letter div {
     width: 100%;
+  }
+  .grid-letters {
+    width: 100%;
+  }
+  .keyboard-letter {
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
   }
 }

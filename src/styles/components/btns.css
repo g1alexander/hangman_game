@@ -95,3 +95,17 @@
 .btn-blue:disabled::hover {
   background-color: rgba(var(--color-blue), 0.3);
 }
+
+.keyboard-letter {
+  color: rgba(var(--color-dark-navy), 1);
+  border-radius: 15px;
+}
+.keyboard-letter:hover {
+  background-color: rgba(var(--color-blue), 1);
+  color: rgba(var(--color-white), 1);
+}
+.keyboard-letter:disabled {
+  background-color: rgba(var(--color-white), 0.4);
+  color: rgba(var(--color-dark-navy), 0.4);
+  cursor: not-allowed;
+}

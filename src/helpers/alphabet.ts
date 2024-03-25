@@ -1,7 +1,7 @@
 export const alphabet = [
   {
     letter: "A",
-    isActive: true,
+    isActive: false,
   },
   {
     letter: "B",

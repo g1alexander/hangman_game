@@ -41,13 +41,13 @@ export default function Page() {
         ))}
       </section>
 
-      {/* <section className="grid-letters">
+      <section className="grid-letters">
         {alphabet.map(({ letter, isActive }) => (
           <KeyboardLetter key={letter} isActive={isActive}>
             {letter}
           </KeyboardLetter>
         ))}
-      </section> */}
+      </section>
     </main>
   );
 }

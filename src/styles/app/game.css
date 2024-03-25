@@ -48,3 +48,14 @@
   background-color: rgba(var(--color-dark-navy), 1);
   border-radius: 20px;
 }
+
+.grid-letters {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1rem 0rem;
+}
+
+.grid-letters > button {
+  justify-self: center;
+}
