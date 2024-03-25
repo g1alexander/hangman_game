@@ -8,14 +8,8 @@ export default function PlayableLetter({
   isActive,
 }: PlayableLetterProps) {
   return (
-    <button className="playable-letter">
-      <div className={`playable-letter__container1 ${!isActive && "disabled"}`}>
-        <div
-          className={`playable-letter__container2 ${!isActive && "disabled"}`}
-        >
-          {isActive && children}
-        </div>
-      </div>
+    <button className="btn btn-blue border-radius-70" disabled={!isActive}>
+      {isActive && children}
     </button>
   );
 }

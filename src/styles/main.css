@@ -2,7 +2,10 @@
 @import url("./config/globals.css");
 @import url("./config/responsive.css");
 /* --------- */
+@import url("./app/game.css");
+/* --------- */
 @import url("./components/card.css");
 @import url("./components/btns.css");
 @import url("./components/how-to-play.css");
-@import url("./components//pick-a-category.css");
+@import url("./components/pick-a-category.css");
+@import url("./components/playable-letter.css");

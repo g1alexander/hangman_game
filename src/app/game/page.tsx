@@ -12,18 +12,18 @@ import PlayableLetter from "@/components/PlayableLetter";
 export default function Page() {
   // console.log("hello world".split(" ").length);
 
-  const [letter, setLetter] = useState("h-l-o word");
+  const [letter, setLetter] = useState("uni--d -in-do-");
 
   return (
-    <main className="game">
-      <header>
-        <article>
-          <Button onClick={() => console.log("h")} color="btn-pink">
+    <main className="container-2">
+      <header className="game-grid-header">
+        <article className="game-grid-header-article justify-start">
+          <Button onClick={() => console.log("h")} color="btn-navigation">
             <Image src={MenuIcon} alt="back" width={20} height={40} priority />
           </Button>
           <h1>Countries</h1>
         </article>
-        <article>
+        <article className="game-grid-header-article justify-end">
           <progress max="3" value="2" />
           <Image src={lifeGame} alt="back" width={20} height={40} priority />
         </article>
@@ -41,13 +41,13 @@ export default function Page() {
         ))}
       </section>
 
-      <section className="grid-letters">
+      {/* <section className="grid-letters">
         {alphabet.map(({ letter, isActive }) => (
           <KeyboardLetter key={letter} isActive={isActive}>
             {letter}
           </KeyboardLetter>
         ))}
-      </section>
+      </section> */}
     </main>
   );
 }

@@ -76,3 +76,22 @@
 .border-radius-30::after {
   border-radius: 30px;
 }
+
+.btn-blue:disabled {
+  background-color: rgba(var(--color-blue), 0.3);
+  border: none;
+  cursor: not-allowed;
+  border-top: 2px solid rgba(var(--color-dark-navy), 0.3);
+  border-left: 3px solid rgba(var(--color-dark-navy), 0.3);
+  border-right: 3px solid rgba(var(--color-dark-navy), 0.3);
+  border-bottom: 7px solid rgba(var(--color-dark-navy), 0.3);
+}
+.btn-blue:disabled::after {
+  border-left: 3px solid rgba(var(--color-blue-border), 0.2);
+  border-right: 3px solid rgba(var(--color-blue-border), 0.2);
+  border-top: 5px solid rgba(var(--color-blue-border), 0.2);
+}
+
+.btn-blue:disabled::hover {
+  background-color: rgba(var(--color-blue), 0.3);
+}

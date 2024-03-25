@@ -39,6 +39,16 @@
   .btn {
     font-size: xx-large;
   }
+
+  .game-grid-header h1 {
+    font-size: 3rem;
+  }
+  .game-grid-header-article {
+    gap: 1.5rem;
+  }
+  .playable_letter div {
+    width: 70%;
+  }
 }
 
 @media (width <= 768px) {
@@ -133,5 +143,17 @@
   }
   .btn {
     font-size: x-large;
+  }
+  .game-grid-header-article {
+    gap: 1rem;
+  }
+  .game-grid-header h1 {
+    font-size: 2rem;
+  }
+  .game-grid-header progress {
+    width: 70px;
+  }
+  .playable_letter div {
+    width: 100%;
   }
 }
