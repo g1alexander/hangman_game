@@ -1,0 +1,186 @@
+@media (width <= 2560px) {
+  .container-2 {
+    max-width: 85%;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+  .card {
+    width: 45%;
+    height: 48%;
+  }
+  .grid-header {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .how-to-play-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .tutorial-card p {
+    padding: 0 0.4rem;
+  }
+  .tutorial-card {
+    grid-template-areas:
+      "step step"
+      "title title"
+      "description description";
+    padding: 1.6rem;
+  }
+  .tutorial-card h2 {
+    font-size: 5rem;
+  }
+  .tutorial-card h3 {
+    font-size: 2.5rem;
+  }
+  .tutorial-card p {
+    font-size: 1.2rem;
+  }
+  .grid-category {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .btn {
+    font-size: xx-large;
+  }
+
+  .game-grid-header h1 {
+    font-size: 3rem;
+  }
+  .game-grid-header-article {
+    gap: 1.5rem;
+  }
+  .playable_letter div {
+    width: 70%;
+  }
+  .grid-letters {
+    width: 70%;
+  }
+  .keyboard-letter {
+    padding: 0.5rem 2.3rem;
+    border-radius: 15px;
+  }
+}
+
+@media (width <= 1440px) {
+  .grid-letters {
+    width: 100%;
+  }
+}
+
+@media (width <= 768px) {
+  :root {
+    --image-background: url("/images/background-tablet.svg");
+  }
+  .container-2 {
+    max-width: 85%;
+    min-height: auto;
+  }
+  .card {
+    width: 80%;
+    height: 50%;
+  }
+  .grid-header {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .how-to-play-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tutorial-card h2 {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+  }
+  .tutorial-card h3 {
+    font-size: xx-large;
+    text-align: start;
+  }
+  .tutorial-card div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .tutorial-card p {
+    text-align: start;
+    padding: 0;
+    font-size: x-large;
+  }
+  .tutorial-card {
+    grid-template-areas:
+      "step title"
+      "step title"
+      "step description";
+    gap: 0 1.5rem;
+    padding: 1.6rem;
+  }
+  .grid-category {
+    grid-template-columns: 1fr 1fr;
+  }
+  .btn {
+    font-size: xx-large;
+  }
+  .grid-letters {
+    width: 100%;
+  }
+  .keyboard-letter {
+    padding: 0.5rem 1.8rem;
+    border-radius: 15px;
+  }
+}
+
+@media (width <= 640px) {
+  :root {
+    --image-background: url("/images/background-mobile.svg");
+  }
+  .container-2 {
+    max-width: 90%;
+    min-height: auto;
+  }
+  .card {
+    width: 90%;
+    height: 55%;
+  }
+  .grid-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .how-to-play-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tutorial-card div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .tutorial-card p {
+    text-align: start;
+    padding: 0;
+    font-size: small;
+  }
+  .tutorial-card h3 {
+    font-size: large;
+  }
+  .tutorial-card {
+    padding: 1rem 1.8rem;
+  }
+  .grid-category {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    font-size: x-large;
+  }
+  .game-grid-header-article {
+    gap: 1rem;
+  }
+  .game-grid-header h1 {
+    font-size: 2rem;
+  }
+  .game-grid-header progress {
+    width: 70px;
+  }
+  .playable_letter div {
+    width: 100%;
+  }
+  .grid-letters {
+    width: 100%;
+  }
+  .keyboard-letter {
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+  }
+}

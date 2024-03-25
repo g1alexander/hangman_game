@@ -1,0 +1,36 @@
+.card {
+  background-color: rgba(var(--color-dark-navy), 0.8);
+  border-radius: 70px;
+  padding: 0.2rem 0.2rem 0.8rem 0.2rem;
+  position: sticky;
+
+  border-top: 1px solid rgba(var(--color-dark-navy), 0.8);
+  border-left: 2px solid rgba(var(--color-dark-navy), 0.8);
+  border-right: 2px solid rgba(var(--color-dark-navy), 0.8);
+  border-bottom: 10px solid rgba(var(--color-dark-navy), 1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0;
+  bottom: -1px;
+  border-radius: 70px;
+  border-left: 2px solid rgba(var(--color-blue), 1);
+  border-right: 2px solid rgba(var(--color-blue), 1);
+  border-top: 10px solid rgba(var(--color-blue), 1);
+}
+
+.card-image {
+  width: 80%;
+  position: absolute;
+  top: -75px;
+  left: 10%;
+}
