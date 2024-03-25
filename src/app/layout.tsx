@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mouse_Memoirs } from "next/font/google";
 import "@/styles/main.css";
+import Modal from "@/components/Modal";
 
 const MouseMemoirs = Mouse_Memoirs({
   style: "normal",
@@ -20,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={MouseMemoirs.className}>{children}</body>
+      <body className={MouseMemoirs.className}>
+        <Modal />
+
+        {children}
+      </body>
     </html>
   );
 }

@@ -32,7 +32,36 @@
 .btn-blue:hover {
   background-color: rgba(var(--color-blue-hover), 1);
 }
-
+.btn-pink {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-pink), 1) 50%,
+    rgba(var(--color-blue-gradient-hover), 1) 100%
+  );
+  color: rgba(var(--color-white), 1);
+  border-top: 2px solid rgba(var(--color-dark-navy), 1);
+  border-left: 3px solid rgba(var(--color-dark-navy), 1);
+  border-right: 3px solid rgba(var(--color-dark-navy), 1);
+  border-bottom: 7px solid rgba(var(--color-dark-navy), 1);
+}
+.btn-pink::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: 0;
+  bottom: -1px;
+  border-left: 3px solid rgba(var(--color-purple-2), 1);
+  border-right: 3px solid rgba(var(--color-purple-2), 1);
+  border-top: 5px solid rgba(var(--color-purple-2), 1);
+}
+.btn-pink:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-pink-hover), 1) 50%,
+    rgba(var(--color-blue-gradient-hover), 1) 100%
+  );
+}
 .btn-navigation {
   display: flex;
   position: relative;
