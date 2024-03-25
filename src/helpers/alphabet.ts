@@ -1,7 +1,7 @@
 export const alphabet = [
   {
     letter: "A",
-    isActive: false,
+    isActive: true,
   },
   {
     letter: "B",
@@ -13,7 +13,7 @@ export const alphabet = [
   },
   {
     letter: "D",
-    isActive: true,
+    isActive: false,
   },
   {
     letter: "E",
@@ -33,7 +33,7 @@ export const alphabet = [
   },
   {
     letter: "I",
-    isActive: true,
+    isActive: false,
   },
   {
     letter: "J",
@@ -53,11 +53,11 @@ export const alphabet = [
   },
   {
     letter: "N",
-    isActive: true,
+    isActive: false,
   },
   {
     letter: "O",
-    isActive: true,
+    isActive: false,
   },
   {
     letter: "P",
@@ -81,7 +81,7 @@ export const alphabet = [
   },
   {
     letter: "U",
-    isActive: true,
+    isActive: false,
   },
   {
     letter: "V",

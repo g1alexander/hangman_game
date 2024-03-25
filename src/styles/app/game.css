@@ -20,6 +20,7 @@
 
 .game-grid-header h1 {
   color: rgba(var(--color-white), 1);
+  text-transform: uppercase;
 }
 .game-grid-header progress {
   -webkit-appearance: none;
