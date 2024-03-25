@@ -12,7 +12,7 @@ export default function HowToPlay() {
 
   return (
     <main className="how-to-play container-2">
-      <header>
+      <header className="grid-header">
         <Button onClick={() => router.back()} color="btn-navigation">
           <Image src={Back} alt="back" width={20} height={40} priority />
         </Button>
@@ -21,7 +21,7 @@ export default function HowToPlay() {
           alt="HowToPlay"
           width={200}
           height={200}
-          className="how-to-play-title"
+          className="grid-header-title"
         />
       </header>
       <section className="how-to-play-grid">

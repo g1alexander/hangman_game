@@ -1,7 +1,7 @@
 .how-to-play {
   min-height: 100vh;
 }
-.how-to-play header {
+/* .how-to-play header {
   display: grid;
   gap: 1rem;
   align-items: center;
@@ -9,10 +9,10 @@
 
 .how-to-play header button {
   justify-items: start;
-}
-.how-to-play-title {
+} */
+/* .how-to-play-title {
   justify-self: center;
-}
+} */
 
 .how-to-play-grid {
   display: grid;

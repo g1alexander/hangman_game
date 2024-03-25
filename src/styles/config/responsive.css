@@ -2,12 +2,13 @@
   .container-2 {
     max-width: 85%;
     margin: 0 auto;
+    min-height: 100vh;
   }
   .card {
     width: 45%;
     height: 48%;
   }
-  .how-to-play header {
+  .grid-header {
     grid-template-columns: 1fr 1fr 1fr;
   }
   .how-to-play-grid {
@@ -45,7 +46,7 @@
     width: 80%;
     height: 50%;
   }
-  .how-to-play header {
+  .grid-header {
     grid-template-columns: 1fr 1fr 1fr;
   }
   .how-to-play-grid {
@@ -91,7 +92,7 @@
     width: 90%;
     height: 55%;
   }
-  .how-to-play header {
+  .grid-header {
     grid-template-columns: 1fr 1fr;
   }
   .how-to-play-grid {
