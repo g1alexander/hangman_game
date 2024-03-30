@@ -5,6 +5,7 @@ import Modal from "@/components/Modal";
 import { ModalProvider } from "@/context/ModalContext";
 
 import "@/styles/main.css";
+import { GameProvider } from "@/context/GameContext";
 
 const MouseMemoirs = Mouse_Memoirs({
   style: "normal",
@@ -26,8 +27,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={MouseMemoirs.className}>
         <ModalProvider>
-          <Modal />
-          {children}
+          <GameProvider>
+            <Modal />
+            {children}
+          </GameProvider>
         </ModalProvider>
       </body>
     </html>

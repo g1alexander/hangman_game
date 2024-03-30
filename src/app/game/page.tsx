@@ -15,7 +15,14 @@ import lifeGame from "@public/images/icon-heart.svg";
 
 export default function Page() {
   const { openModal } = useContext(ModalContext);
-  const { alphabet, getCategory, getLetter, life } = useGame();
+  const {
+    alphabet,
+    getCategory,
+    getLetter,
+    life,
+    selectHideLetter,
+    checkLetter,
+  } = useGame();
 
   return (
     <main className="container-2">
@@ -35,8 +42,12 @@ export default function Page() {
       <section className="playable_letter">
         {getLetter.map((word, index) => (
           <div key={index}>
-            {word.split("").map((letter, index) => (
-              <PlayableLetter key={index} isActive={letter !== "-"}>
+            {word.split("").map((letter, index2) => (
+              <PlayableLetter
+                key={index2}
+                isActive={letter !== "-"}
+                onClick={() => selectHideLetter(index2, index)}
+              >
                 {letter}
               </PlayableLetter>
             ))}
@@ -49,7 +60,7 @@ export default function Page() {
           <KeyboardLetter
             key={letter}
             isActive={isActive}
-            onClick={console.log}
+            onClick={() => checkLetter(letter)}
           >
             {letter}
           </KeyboardLetter>

@@ -8,10 +8,12 @@ import { ModalContext } from "@/context/ModalContext";
 
 import Card from "./Card";
 import Button from "./Button";
+import { GameContext } from "@/context/GameContext";
 
 export default function Modal() {
   const router = useRouter();
   const { isOpen, image, action, closeModal } = useContext(ModalContext);
+  const { resetGame, newGameWithSameCategory } = useContext(GameContext);
 
   return (
     isOpen && (
@@ -37,8 +39,8 @@ export default function Modal() {
             </Button>
           ) : (
             <Button
-              onClick={() => {
-                //TODO: new word in the same category
+              onClick={async () => {
+                await newGameWithSameCategory();
                 closeModal();
               }}
               color="btn-blue btn"
@@ -49,6 +51,7 @@ export default function Modal() {
 
           <Button
             onClick={() => {
+              resetGame();
               router.push("/pick-a-category");
               closeModal();
             }}
@@ -58,6 +61,7 @@ export default function Modal() {
           </Button>
           <Button
             onClick={() => {
+              resetGame();
               router.push("/");
               closeModal();
             }}

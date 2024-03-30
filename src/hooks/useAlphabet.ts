@@ -1,12 +1,12 @@
 import { Alphabet } from "@/types/Alphabet";
-import { alphabet as alphabetInit } from "@/helpers/alphabet";
-import { useState } from "react";
+import { useContext } from "react";
+import { GameContext } from "@/context/GameContext";
 
 export function useAlphabet() {
-  const [alphabet, setAlphabet] = useState<Alphabet[]>(alphabetInit);
+  const { alphabet, setAlphabet } = useContext(GameContext);
 
   const setChangeActive = (letter: string) => {
-    setAlphabet((prev) =>
+    setAlphabet((prev: Alphabet[]) =>
       prev.map((item) =>
         item.letter === letter ? { ...item, isActive: !item.isActive } : item
       )

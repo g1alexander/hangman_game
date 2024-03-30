@@ -10,9 +10,12 @@ import { categories } from "@/helpers/categories";
 
 import PickACategoryImage from "@public/images/pick_a_category.svg";
 import Back from "@public/images/icon-back.svg";
+import { GameContext } from "@/context/GameContext";
+import { useContext } from "react";
 
 export default function PickACategory() {
   const router = useRouter();
+  const { setCategory } = useContext(GameContext);
 
   return (
     <main className="container-2">
@@ -32,7 +35,10 @@ export default function PickACategory() {
         {categories.map(({ name, query }, index) => (
           <SelectableCategory
             key={index}
-            onClick={() => router.push(`/game?category=${query}`)}
+            onClick={() => {
+              setCategory(query);
+              router.push(`/game`);
+            }}
           >
             {name}
           </SelectableCategory>
