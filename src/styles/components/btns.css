@@ -6,7 +6,7 @@
   justify-content: center;
   border: none;
   width: 45%;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -105,8 +105,12 @@
 .border-radius-30::after {
   border-radius: 30px;
 }
+.border-radius-50 {
+  border-radius: 50px;
+}
 
-.btn-blue:disabled {
+.btn-blue:disabled,
+.disabled-blue {
   background-color: rgba(var(--color-blue), 0.3);
   border: none;
   cursor: not-allowed;
@@ -115,19 +119,20 @@
   border-right: 3px solid rgba(var(--color-dark-navy), 0.3);
   border-bottom: 7px solid rgba(var(--color-dark-navy), 0.3);
 }
-.btn-blue:disabled::after {
+.btn-blue:disabled::after,
+.disabled-blue::after {
   border-left: 3px solid rgba(var(--color-blue-border), 0.2);
   border-right: 3px solid rgba(var(--color-blue-border), 0.2);
   border-top: 5px solid rgba(var(--color-blue-border), 0.2);
 }
 
-.btn-blue:disabled::hover {
+.btn-blue:disabled::hover,
+.disabled-blue::hover {
   background-color: rgba(var(--color-blue), 0.3);
 }
 
 .keyboard-letter {
   color: rgba(var(--color-dark-navy), 1);
-  border-radius: 15px;
 }
 .keyboard-letter:hover {
   background-color: rgba(var(--color-blue), 1);

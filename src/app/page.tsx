@@ -1,11 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 import Button from "@/components/Button";
 import ButtonPlay from "@/components/ButtonPlay";
-import Image from "next/image";
-import logo from "@public/images/logo.svg";
 import Card from "@/components/Card";
+
+import logo from "@public/images/logo.svg";
 
 export default function Home() {
   const router = useRouter();
@@ -13,7 +14,14 @@ export default function Home() {
   return (
     <main className="container container-2">
       <Card>
-        <Image priority src={logo} alt="Hangman Game" className="card-image" />
+        <Image
+          width={100}
+          height={100}
+          priority
+          src={logo}
+          alt="Hangman Game"
+          className="card-image"
+        />
         <span></span>
         <span></span>
         <span></span>

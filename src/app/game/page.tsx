@@ -1,39 +1,53 @@
 "use client";
 
 import Image from "next/image";
+import { useContext } from "react";
+
+import { ModalContext } from "@/context/ModalContext";
+import { useGame } from "@/hooks/useGame";
+
+import PlayableLetter from "@/components/PlayableLetter";
 import Button from "@/components/Button";
+import KeyboardLetter from "@/components/KeyboardLetter";
+
 import MenuIcon from "@public/images/icon-menu.svg";
 import lifeGame from "@public/images/icon-heart.svg";
-import KeyboardLetter from "@/components/KeyboardLetter";
-import { alphabet } from "@/helpers/alphabet";
-import { useState } from "react";
-import PlayableLetter from "@/components/PlayableLetter";
 
 export default function Page() {
-  // console.log("hello world".split(" ").length);
-
-  const [letter, setLetter] = useState("uni--d -in-do-");
+  const { openModal } = useContext(ModalContext);
+  const {
+    alphabet,
+    getCategory,
+    getLetter,
+    life,
+    selectHideLetter,
+    checkLetter,
+  } = useGame();
 
   return (
     <main className="container-2">
       <header className="game-grid-header">
         <article className="game-grid-header-article justify-start">
-          <Button onClick={() => console.log("h")} color="btn-navigation">
+          <Button onClick={() => openModal("paused")} color="btn-navigation">
             <Image src={MenuIcon} alt="back" width={20} height={40} priority />
           </Button>
-          <h1>Countries</h1>
+          <h1>{getCategory}</h1>
         </article>
         <article className="game-grid-header-article justify-end">
-          <progress max="3" value="2" />
+          <progress max={life.max} value={life.value} />
           <Image src={lifeGame} alt="back" width={20} height={40} priority />
         </article>
       </header>
 
       <section className="playable_letter">
-        {letter.split(" ").map((word, index) => (
+        {getLetter.map((word, index) => (
           <div key={index}>
-            {word.split("").map((letter, index) => (
-              <PlayableLetter key={index} isActive={letter !== "-"}>
+            {word.split("").map((letter, index2) => (
+              <PlayableLetter
+                key={index2}
+                isActive={letter !== "-"}
+                onClick={() => selectHideLetter(index2, index)}
+              >
                 {letter}
               </PlayableLetter>
             ))}
@@ -43,7 +57,11 @@ export default function Page() {
 
       <section className="grid-letters">
         {alphabet.map(({ letter, isActive }) => (
-          <KeyboardLetter key={letter} isActive={isActive}>
+          <KeyboardLetter
+            key={letter}
+            isActive={isActive}
+            onClick={() => checkLetter(letter)}
+          >
             {letter}
           </KeyboardLetter>
         ))}

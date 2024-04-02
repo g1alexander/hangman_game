@@ -1,11 +1,13 @@
 "use client";
 
-import TutorialCard from "@/components/TutorialCard";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+
+import TutorialCard from "@/components/TutorialCard";
+
 import HowToPlayImage from "@public/images/how_to_play.svg";
 import Back from "@public/images/icon-back.svg";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
 
 export default function HowToPlay() {
   const router = useRouter();
