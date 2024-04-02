@@ -16,6 +16,7 @@ export interface TypeGameContext {
   setAlphabet: React.Dispatch<React.SetStateAction<Alphabet[]>>;
   resetGame: () => void;
   newGameWithSameCategory: () => void;
+  setChangeAlphabet: (alphabetChange: Record<string, boolean>) => void;
 }
 export interface Letter {
   game: string;
@@ -38,13 +39,14 @@ export const GameContext = createContext<TypeGameContext>({
     max: 3,
     value: 0,
   },
-  alphabet: alphabetInit,
+  alphabet: [...alphabetInit],
   setCategory: () => {},
   setLetter: () => {},
   setLife: () => {},
   setAlphabet: () => {},
   resetGame: () => {},
   newGameWithSameCategory: () => {},
+  setChangeAlphabet: () => {},
 });
 
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
@@ -58,7 +60,20 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     max: 3,
     value: 0,
   });
-  const [alphabet, setAlphabet] = useState<Alphabet[]>(alphabetInit);
+  const [alphabet, setAlphabet] = useState<Alphabet[]>([...alphabetInit]);
+
+  const setChangeAlphabet = (alphabetChange: Record<string, boolean>) => {
+    const newAlphabet = alphabet.map((item) => {
+      let newItem = { ...item };
+
+      if (alphabetChange[newItem.letter] !== undefined) {
+        newItem.isActive = alphabetChange[newItem.letter];
+      }
+      return newItem;
+    });
+
+    setAlphabet([...newAlphabet]);
+  };
 
   const resetGame = () => {
     setLetter({
@@ -82,7 +97,8 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
       positionLetterHide: [0, 0],
     });
 
-    // todo: reset alphabet
+    const desactive = desactiveLetterAlphabet(word, hideWord);
+    setChangeAlphabet(desactive);
   };
 
   return (
@@ -98,6 +114,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
         setAlphabet,
         resetGame,
         newGameWithSameCategory,
+        setChangeAlphabet,
       }}
     >
       {children}

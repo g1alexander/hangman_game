@@ -6,9 +6,16 @@ import { GameContext } from "@/context/GameContext";
 
 export function useGame() {
   const { openModal } = useContext(ModalContext);
-  const { letter, life, setLetter, setLife, category } =
-    useContext(GameContext);
-  const { alphabet, setChangeAlphabet } = useAlphabet();
+  const {
+    letter,
+    life,
+    setLetter,
+    setLife,
+    category,
+    setChangeAlphabet,
+    alphabet,
+    resetGame,
+  } = useContext(GameContext);
 
   const getCategory = category?.split("_").join(" ");
 
@@ -67,6 +74,7 @@ export function useGame() {
     });
 
     if (wordOriginalSplit.join("") === wordSplit.join("")) {
+      resetGame();
       openModal("win");
     }
   };
@@ -78,5 +86,6 @@ export function useGame() {
     life,
     selectHideLetter,
     checkLetter,
+    setChangeAlphabet,
   };
 }
