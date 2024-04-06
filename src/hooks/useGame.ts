@@ -1,5 +1,4 @@
-import { useContext, useEffect } from "react";
-import { useAlphabet } from "./useAlphabet";
+import { useContext, useEffect, useRef } from "react";
 import { desactiveLetterAlphabet, fetchData } from "@/helpers/getGame";
 import { ModalContext } from "@/context/ModalContext";
 import { GameContext } from "@/context/GameContext";
@@ -12,28 +11,48 @@ export function useGame() {
     setLetter,
     setLife,
     category,
+    setCategory,
     setChangeAlphabet,
     alphabet,
     resetGame,
   } = useContext(GameContext);
+  const firstUpdate = useRef(true);
 
-  const getCategory = category?.split("_").join(" ");
+  let getCategory = category?.split("_").join(" ");
 
   useEffect(() => {
-    fetchData(category).then(({ word, hideWord }) => {
-      setLetter({
-        game: hideWord,
-        original: word,
-        positionLetterHide: [0, 0],
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+
+    if (!category && sessionStorage.getItem("category")) {
+      const category = sessionStorage.getItem("category");
+      setCategory(category || "");
+    }
+
+    if (category) {
+      fetchData(category).then(({ word, hideWord }) => {
+        setLetter({
+          game: hideWord,
+          original: word,
+          positionLetterHide: [0, 0],
+        });
       });
-    });
-  }, [category, setLetter]);
+
+      sessionStorage.setItem("category", category);
+    }
+  }, [category, setLetter, setCategory]);
 
   useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+
     const desactive = desactiveLetterAlphabet(letter.original, letter.game);
     setChangeAlphabet(desactive);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [letter]);
+  }, [letter, setChangeAlphabet]);
 
   const selectHideLetter = (positionLetter: number, positionWord: number) => {
     setLetter({

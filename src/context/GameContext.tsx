@@ -72,7 +72,9 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
       return newItem;
     });
 
-    setAlphabet([...newAlphabet]);
+    if (JSON.stringify(newAlphabet) !== JSON.stringify(alphabet)) {
+      setAlphabet([...newAlphabet]);
+    }
   };
 
   const resetGame = () => {
