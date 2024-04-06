@@ -1,4 +1,5 @@
 import { IndexedDB } from "@/db/indexedDB";
+import { prompts } from "@/utils/prompts";
 
 export async function getWord(category: string): Promise<string> {
   try {
@@ -6,12 +7,16 @@ export async function getWord(category: string): Promise<string> {
 
     const arrayValues = await indexedDB?.getAll();
 
-    const response: string = await fetch("/api", {
+    const prompt = prompts[category](arrayValues);
+
+    let response: string = await fetch("/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ category, array_values: arrayValues }),
+      body: JSON.stringify({
+        prompt,
+      }),
     })
       .then((res) => res.json())
       .then((res) => res.message);
