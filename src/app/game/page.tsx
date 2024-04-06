@@ -16,6 +16,7 @@ import lifeGame from "@public/images/icon-heart.svg";
 export default function Page() {
   const { openModal } = useContext(ModalContext);
   const {
+    isLoading,
     alphabet,
     getCategory,
     getLetter,
@@ -39,33 +40,39 @@ export default function Page() {
         </article>
       </header>
 
-      <section className="playable_letter">
-        {getLetter.map((word, index) => (
-          <div key={index}>
-            {word.split("").map((letter, index2) => (
-              <PlayableLetter
-                key={index2}
-                isActive={letter !== "-"}
-                onClick={() => selectHideLetter(index2, index)}
+      {isLoading ? (
+        <section className="loader"></section>
+      ) : (
+        <>
+          <section className="playable_letter">
+            {getLetter.map((word, index) => (
+              <div key={index}>
+                {word.split("").map((letter, index2) => (
+                  <PlayableLetter
+                    key={index2}
+                    isActive={letter !== "-"}
+                    onClick={() => selectHideLetter(index2, index)}
+                  >
+                    {letter}
+                  </PlayableLetter>
+                ))}
+              </div>
+            ))}
+          </section>
+
+          <section className="grid-letters">
+            {alphabet.map(({ letter, isActive }) => (
+              <KeyboardLetter
+                key={letter}
+                isActive={isActive}
+                onClick={() => checkLetter(letter)}
               >
                 {letter}
-              </PlayableLetter>
+              </KeyboardLetter>
             ))}
-          </div>
-        ))}
-      </section>
-
-      <section className="grid-letters">
-        {alphabet.map(({ letter, isActive }) => (
-          <KeyboardLetter
-            key={letter}
-            isActive={isActive}
-            onClick={() => checkLetter(letter)}
-          >
-            {letter}
-          </KeyboardLetter>
-        ))}
-      </section>
+          </section>
+        </>
+      )}
     </main>
   );
 }

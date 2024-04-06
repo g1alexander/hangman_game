@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { desactiveLetterAlphabet, fetchData } from "@/helpers/getGame";
 import { ModalContext } from "@/context/ModalContext";
 import { GameContext } from "@/context/GameContext";
@@ -17,6 +17,7 @@ export function useGame() {
     resetGame,
   } = useContext(GameContext);
   const firstUpdate = useRef(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   let getCategory = category?.split("_").join(" ");
 
@@ -32,12 +33,15 @@ export function useGame() {
     }
 
     if (category) {
+      setIsLoading(true);
       fetchData(category).then(({ word, hideWord }) => {
         setLetter({
           game: hideWord,
           original: word,
           positionLetterHide: [0, 0],
         });
+
+        setIsLoading(false);
       });
 
       sessionStorage.setItem("category", category);
@@ -99,6 +103,7 @@ export function useGame() {
   };
 
   return {
+    isLoading,
     alphabet,
     getCategory,
     getLetter: letter.game.split(" "),
