@@ -29,8 +29,13 @@ export async function POST(request: Request) {
       model: "gpt-3.5-turbo",
     });
 
+    const content = completation.choices[0].message.content || "";
+
+    const response = content.toLowerCase();
+    const responseFormatter = response.replace(/[\.\-]/g, "").trim();
+
     return NextResponse.json({
-      message: completation.choices[0].message.content?.toLowerCase(),
+      message: responseFormatter,
     });
   } catch (error) {
     const err = error as { error: { message: string } };
