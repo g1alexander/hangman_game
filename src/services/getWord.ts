@@ -7,7 +7,15 @@ export async function getWord(category: string): Promise<string> {
 
     const arrayValues = await indexedDB?.getAll();
 
-    const prompt = prompts[category](arrayValues);
+    if (arrayValues && arrayValues.notWinners.length > 0) {
+      const randomIndex = Math.floor(
+        Math.random() * arrayValues.notWinners.length
+      );
+      const word = arrayValues.notWinners[randomIndex];
+      return word;
+    }
+
+    const prompt = prompts[category](arrayValues?.winners);
 
     let response: string = await fetch("/api", {
       method: "POST",
@@ -23,10 +31,13 @@ export async function getWord(category: string): Promise<string> {
 
     const isExist = await indexedDB?.isExist(response);
     if (!isExist) {
-      await indexedDB?.add(response);
+      await indexedDB?.add({
+        value: response,
+        isWinner: false,
+      });
     }
 
-    if (arrayValues?.length === 40) {
+    if (arrayValues && arrayValues.winners.length === 40) {
       await indexedDB?.deleteAll();
     }
 
@@ -37,9 +48,18 @@ export async function getWord(category: string): Promise<string> {
     const indexedDB = await IndexedDB(category);
     const arrayValues = await indexedDB?.getAll();
 
-    if (arrayValues && arrayValues.length !== 0) {
-      const randomIndex = Math.floor(Math.random() * arrayValues.length);
-      const word = arrayValues[randomIndex];
+    if (arrayValues && arrayValues.notWinners.length !== 0) {
+      const randomIndex = Math.floor(
+        Math.random() * arrayValues.notWinners.length
+      );
+      const word = arrayValues.notWinners[randomIndex];
+
+      return word;
+    } else if (arrayValues && arrayValues.winners.length !== 0) {
+      const randomIndex = Math.floor(
+        Math.random() * arrayValues.winners.length
+      );
+      const word = arrayValues.winners[randomIndex];
 
       return word;
     }
