@@ -36,11 +36,14 @@ export function useGame() {
     if (category) {
       setIsLoading(true);
       fetchData(category).then(({ word, hideWord }) => {
+        const hide = sessionStorage.getItem("hideWord");
+
         setLetter({
-          game: hideWord,
+          game: hide || hideWord,
           original: word,
           positionLetterHide: [0, 0],
         });
+        sessionStorage.setItem("hideWord", hide || hideWord);
 
         setIsLoading(false);
       });
@@ -53,6 +56,10 @@ export function useGame() {
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
+    }
+
+    if (letter.game) {
+      sessionStorage.setItem("hideWord", letter.game);
     }
 
     const desactive = desactiveLetterAlphabet(letter.original, letter.game);
@@ -96,6 +103,8 @@ export function useGame() {
     if (!isCorrect) {
       if (life.value + 1 === life.max) {
         sessionStorage.removeItem("life");
+        sessionStorage.removeItem("hideWord");
+
         setLife({
           ...life,
           value: 0,
@@ -127,6 +136,8 @@ export function useGame() {
       const indexedDB = await IndexedDB(category);
 
       await indexedDB?.update(letter.original);
+      sessionStorage.removeItem("hideWord");
+      sessionStorage.removeItem("life");
       resetGame();
       openModal("win");
     }

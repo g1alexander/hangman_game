@@ -78,6 +78,8 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const resetGame = () => {
+    sessionStorage.removeItem("life");
+    sessionStorage.removeItem("hideWord");
     setLetter({
       game: "",
       original: "",
