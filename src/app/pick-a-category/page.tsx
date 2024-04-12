@@ -20,7 +20,7 @@ export default function PickACategory() {
   return (
     <main className="container-2">
       <header className="grid-header">
-        <Button onClick={() => router.back()} color="btn-navigation">
+        <Button onClick={() => router.push("/")} color="btn-navigation">
           <Image src={Back} alt="back" width={20} height={40} priority />
         </Button>
         <Image
