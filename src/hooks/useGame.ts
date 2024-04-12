@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { desactiveLetterAlphabet, fetchData } from "@/helpers/getGame";
 import { ModalContext } from "@/context/ModalContext";
 import { GameContext } from "@/context/GameContext";
+import { IndexedDB } from "@/db/indexedDB";
 
 export function useGame() {
   const { openModal } = useContext(ModalContext);
@@ -35,11 +36,14 @@ export function useGame() {
     if (category) {
       setIsLoading(true);
       fetchData(category).then(({ word, hideWord }) => {
+        const hide = sessionStorage.getItem("hideWord");
+
         setLetter({
-          game: hideWord,
+          game: hide || hideWord,
           original: word,
           positionLetterHide: [0, 0],
         });
+        sessionStorage.setItem("hideWord", hide || hideWord);
 
         setIsLoading(false);
       });
@@ -54,9 +58,31 @@ export function useGame() {
       return;
     }
 
+    if (letter.game) {
+      sessionStorage.setItem("hideWord", letter.game);
+    }
+
     const desactive = desactiveLetterAlphabet(letter.original, letter.game);
     setChangeAlphabet(desactive);
   }, [letter, setChangeAlphabet]);
+
+  useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+
+    const storedLife = sessionStorage.getItem("life");
+
+    if (life && storedLife) {
+      const lifeParse = JSON.parse(storedLife || `${life}`);
+      if (lifeParse.value === life.value) return;
+
+      setLife(lifeParse);
+    } else {
+      sessionStorage.setItem("life", JSON.stringify(life));
+    }
+  }, [life, setLife]);
 
   const selectHideLetter = (positionLetter: number, positionWord: number) => {
     setLetter({
@@ -65,7 +91,7 @@ export function useGame() {
     });
   };
 
-  const checkLetter = (payload: string) => {
+  const checkLetter = async (payload: string) => {
     const wordOriginalSplit = letter.original.split(" ");
     const wordSplit = letter.game.split(" ");
 
@@ -75,14 +101,24 @@ export function useGame() {
       ] === payload;
 
     if (!isCorrect) {
-      setLife({
+      if (life.value + 1 === life.max) {
+        sessionStorage.removeItem("life");
+        sessionStorage.removeItem("hideWord");
+
+        setLife({
+          ...life,
+          value: 0,
+        });
+        openModal("lose");
+        return;
+      }
+
+      const data = {
         ...life,
         value: life.value + 1,
-      });
-
-      if (life.value + 1 === life.max) {
-        openModal("lose");
-      }
+      };
+      setLife(data);
+      sessionStorage.setItem("life", JSON.stringify(data));
       return;
     }
 
@@ -97,6 +133,11 @@ export function useGame() {
     });
 
     if (wordOriginalSplit.join("") === wordSplit.join("")) {
+      const indexedDB = await IndexedDB(category);
+
+      await indexedDB?.update(letter.original);
+      sessionStorage.removeItem("hideWord");
+      sessionStorage.removeItem("life");
       resetGame();
       openModal("win");
     }
