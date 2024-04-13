@@ -27,12 +27,12 @@ export function useGame() {
     console.log("useEffect", firstUpdate.current);
     console.log("useEffect1", firstUpdate.current, category, captchaCode);
 
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
+    // if (firstUpdate.current) {
+    //   firstUpdate.current = false;
+    //   return;
+    // }
 
-    console.log("useEffect2", firstUpdate.current, category, captchaCode);
+    // console.log("useEffect2", firstUpdate.current, category, captchaCode);
 
     if (!category && sessionStorage.getItem("category")) {
       const category = sessionStorage.getItem("category");
@@ -59,10 +59,10 @@ export function useGame() {
   }, [category, captchaCode, setLetter, setCategory]);
 
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
+    // if (firstUpdate.current) {
+    //   firstUpdate.current = false;
+    //   return;
+    // }
 
     if (letter.game) {
       sessionStorage.setItem("hideWord", letter.game);
@@ -73,10 +73,10 @@ export function useGame() {
   }, [letter, setChangeAlphabet]);
 
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
+    // if (firstUpdate.current) {
+    //   firstUpdate.current = false;
+    //   return;
+    // }
 
     const storedLife = sessionStorage.getItem("life");
 
