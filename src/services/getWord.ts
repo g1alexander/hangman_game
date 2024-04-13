@@ -6,7 +6,6 @@ export async function getWord(
   captchaCode: string
 ): Promise<string> {
   try {
-    console.log("getWord", captchaCode);
     const indexedDB = await IndexedDB(category);
 
     const arrayValues = await indexedDB?.getAll();
@@ -33,8 +32,6 @@ export async function getWord(
     })
       .then((res) => res.json())
       .then((res) => res.message);
-
-    console.log("response", response);
 
     const isExist = await indexedDB?.isExist(response);
     if (!isExist) {
