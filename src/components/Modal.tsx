@@ -2,7 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useContext } from "react";
+import { createRef, useContext } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 import { ModalContext } from "@/context/ModalContext";
 
@@ -13,7 +14,20 @@ import { GameContext } from "@/context/GameContext";
 export default function Modal() {
   const router = useRouter();
   const { isOpen, image, action, closeModal } = useContext(ModalContext);
-  const { resetGame, newGameWithSameCategory } = useContext(GameContext);
+  const { resetGame, setCaptchaCode } = useContext(GameContext);
+  const recaptchaRef = createRef<ReCAPTCHA>();
+
+  const onReCAPTCHAChange = async (captchaCode: string | null) => {
+    if (!captchaCode) return;
+
+    setCaptchaCode(captchaCode);
+    closeModal();
+    recaptchaRef.current?.reset();
+  };
+
+  const handleSubmit = () => {
+    recaptchaRef.current?.execute();
+  };
 
   return (
     isOpen && (
@@ -38,13 +52,7 @@ export default function Modal() {
               continue
             </Button>
           ) : (
-            <Button
-              onClick={async () => {
-                await newGameWithSameCategory();
-                closeModal();
-              }}
-              color="btn-blue btn"
-            >
+            <Button onClick={handleSubmit} color="btn-blue btn">
               play again!
             </Button>
           )}
@@ -72,6 +80,13 @@ export default function Modal() {
           <span></span>
           <span></span>
         </Card>
+
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          size="invisible"
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+          onChange={onReCAPTCHAChange}
+        />
       </main>
     )
   );
