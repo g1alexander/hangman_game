@@ -24,10 +24,15 @@ export function useGame() {
   let getCategory = category?.split("_").join(" ");
 
   useEffect(() => {
+    console.log("useEffect", firstUpdate.current);
+    console.log("useEffect1", firstUpdate.current, category, captchaCode);
+
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
     }
+
+    console.log("useEffect2", firstUpdate.current, category, captchaCode);
 
     if (!category && sessionStorage.getItem("category")) {
       const category = sessionStorage.getItem("category");
