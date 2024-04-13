@@ -36,6 +36,7 @@ export function useGame() {
 
     if (category) {
       setIsLoading(true);
+      console.log("fetchData", category, captchaCode);
       fetchData(category, captchaCode).then(({ word, hideWord }) => {
         const hide = sessionStorage.getItem("hideWord");
 
