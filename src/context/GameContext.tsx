@@ -3,7 +3,6 @@
 import { createContext, useState } from "react";
 import { Alphabet } from "@/types/Alphabet";
 import { alphabet as alphabetInit } from "@/helpers/alphabet";
-import { desactiveLetterAlphabet, fetchData } from "@/helpers/getGame";
 
 export interface TypeGameContext {
   captchaCode: string;
@@ -66,7 +65,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [alphabet, setAlphabet] = useState<Alphabet[]>([...alphabetInit]);
 
   const setChangeAlphabet = (alphabetChange: Record<string, boolean>) => {
-    const newAlphabet = alphabet.map((item) => {
+    const newAlphabet = alphabetInit.map((item) => {
       let newItem = { ...item };
 
       if (alphabetChange[newItem.letter] !== undefined) {

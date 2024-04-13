@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { desactiveLetterAlphabet, fetchData } from "@/helpers/getGame";
 import { ModalContext } from "@/context/ModalContext";
 import { GameContext } from "@/context/GameContext";
@@ -18,22 +18,11 @@ export function useGame() {
     alphabet,
     resetGame,
   } = useContext(GameContext);
-  const firstUpdate = useRef(true);
   const [isLoading, setIsLoading] = useState(false);
 
   let getCategory = category?.split("_").join(" ");
 
   useEffect(() => {
-    console.log("useEffect", firstUpdate.current);
-    console.log("useEffect1", firstUpdate.current, category, captchaCode);
-
-    // if (firstUpdate.current) {
-    //   firstUpdate.current = false;
-    //   return;
-    // }
-
-    // console.log("useEffect2", firstUpdate.current, category, captchaCode);
-
     if (!category && sessionStorage.getItem("category")) {
       const category = sessionStorage.getItem("category");
       setCategory(category || "");
@@ -59,25 +48,15 @@ export function useGame() {
   }, [category, captchaCode, setLetter, setCategory]);
 
   useEffect(() => {
-    // if (firstUpdate.current) {
-    //   firstUpdate.current = false;
-    //   return;
-    // }
-
-    if (letter.game) {
+    if (letter.game && life.value === life.max) {
       sessionStorage.setItem("hideWord", letter.game);
     }
 
     const desactive = desactiveLetterAlphabet(letter.original, letter.game);
     setChangeAlphabet(desactive);
-  }, [letter, setChangeAlphabet]);
+  }, [letter, setChangeAlphabet, life]);
 
   useEffect(() => {
-    // if (firstUpdate.current) {
-    //   firstUpdate.current = false;
-    //   return;
-    // }
-
     const storedLife = sessionStorage.getItem("life");
 
     if (life && storedLife) {
