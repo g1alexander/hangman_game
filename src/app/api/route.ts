@@ -1,6 +1,6 @@
 import { openai } from "@/helpers/openai";
 import { NextResponse } from "next/server";
-import fetch from "node-fetch";
+import axios from "axios";
 
 interface Body {
   prompt?: string;
@@ -22,18 +22,21 @@ export async function POST(request: Request) {
   if (!body.captchaCode) return responseJson("captchaCode is required", 400);
 
   try {
-    const responseCaptcha = await fetch(
+    const responseCaptcha = await axios.post<{
+      success: boolean;
+      challenge_ts: string;
+      hostname: string;
+    }>(
       `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${body.captchaCode}`,
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
         },
-        method: "POST",
       }
     );
-    const captchaValidation = await responseCaptcha.json();
+    // const captchaValidation = await responseCaptcha.json();
 
-    if (!captchaValidation.success)
+    if (!responseCaptcha.data.success)
       return responseJson("Captcha validation failed", 400);
 
     const completation = await openai.chat.completions.create({
