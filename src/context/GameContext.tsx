@@ -6,6 +6,8 @@ import { alphabet as alphabetInit } from "@/helpers/alphabet";
 import { desactiveLetterAlphabet, fetchData } from "@/helpers/getGame";
 
 export interface TypeGameContext {
+  captchaCode: string;
+  setCaptchaCode: (token: string) => void;
   category: string;
   setCategory: (category: string) => void;
   letter: Letter;
@@ -15,7 +17,6 @@ export interface TypeGameContext {
   alphabet: Alphabet[];
   setAlphabet: React.Dispatch<React.SetStateAction<Alphabet[]>>;
   resetGame: () => void;
-  newGameWithSameCategory: () => void;
   setChangeAlphabet: (alphabetChange: Record<string, boolean>) => void;
 }
 export interface Letter {
@@ -29,6 +30,7 @@ export interface Life {
 }
 
 export const GameContext = createContext<TypeGameContext>({
+  captchaCode: "",
   category: "",
   letter: {
     game: "",
@@ -40,16 +42,17 @@ export const GameContext = createContext<TypeGameContext>({
     value: 0,
   },
   alphabet: [...alphabetInit],
+  setCaptchaCode: () => {},
   setCategory: () => {},
   setLetter: () => {},
   setLife: () => {},
   setAlphabet: () => {},
   resetGame: () => {},
-  newGameWithSameCategory: () => {},
   setChangeAlphabet: () => {},
 });
 
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
+  const [captchaCode, setCaptchaCode] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [letter, setLetter] = useState<Letter>({
     game: "",
@@ -92,22 +95,11 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     setAlphabet(alphabetInit);
   };
 
-  const newGameWithSameCategory = async () => {
-    const { word, hideWord } = await fetchData(category);
-
-    setLetter({
-      game: hideWord,
-      original: word,
-      positionLetterHide: [0, 0],
-    });
-
-    const desactive = desactiveLetterAlphabet(word, hideWord);
-    setChangeAlphabet(desactive);
-  };
-
   return (
     <GameContext.Provider
       value={{
+        captchaCode,
+        setCaptchaCode,
         category,
         setCategory,
         letter,
@@ -117,7 +109,6 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
         alphabet,
         setAlphabet,
         resetGame,
-        newGameWithSameCategory,
         setChangeAlphabet,
       }}
     >

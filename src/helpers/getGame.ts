@@ -64,8 +64,8 @@ export const hideRandomLetters = (word: string, percentageToHide = 0.5) => {
   return characters.join("");
 };
 
-export const fetchData = async (category: string) => {
-  const word = await getWord(category);
+export const fetchData = async (category: string, captchaCode: string) => {
+  const word = await getWord(category, captchaCode);
   const hideWord = hideRandomLetters(word);
 
   return { word, hideWord };

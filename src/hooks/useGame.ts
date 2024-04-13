@@ -7,6 +7,7 @@ import { IndexedDB } from "@/db/indexedDB";
 export function useGame() {
   const { openModal } = useContext(ModalContext);
   const {
+    captchaCode,
     letter,
     life,
     setLetter,
@@ -35,7 +36,7 @@ export function useGame() {
 
     if (category) {
       setIsLoading(true);
-      fetchData(category).then(({ word, hideWord }) => {
+      fetchData(category, captchaCode).then(({ word, hideWord }) => {
         const hide = sessionStorage.getItem("hideWord");
 
         setLetter({
@@ -50,7 +51,7 @@ export function useGame() {
 
       sessionStorage.setItem("category", category);
     }
-  }, [category, setLetter, setCategory]);
+  }, [category, captchaCode, setLetter, setCategory]);
 
   useEffect(() => {
     if (firstUpdate.current) {

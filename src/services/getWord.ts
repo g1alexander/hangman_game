@@ -1,7 +1,10 @@
 import { IndexedDB } from "@/db/indexedDB";
 import { prompts } from "@/utils/prompts";
 
-export async function getWord(category: string): Promise<string> {
+export async function getWord(
+  category: string,
+  captchaCode: string
+): Promise<string> {
   try {
     const indexedDB = await IndexedDB(category);
 
@@ -17,13 +20,14 @@ export async function getWord(category: string): Promise<string> {
 
     const prompt = prompts[category](arrayValues?.winners);
 
-    let response: string = await fetch("/api", {
+    const response: string = await fetch("/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         prompt,
+        captchaCode,
       }),
     })
       .then((res) => res.json())
