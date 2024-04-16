@@ -37,7 +37,7 @@ export const GameContext = createContext<TypeGameContext>({
     positionLetterHide: [0, 0],
   },
   life: {
-    max: 3,
+    max: 8,
     value: 0,
   },
   alphabet: [...alphabetInit],
@@ -59,7 +59,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     positionLetterHide: [0, 0],
   });
   const [life, setLife] = useState<Life>({
-    max: 3,
+    max: 8,
     value: 0,
   });
   const [alphabet, setAlphabet] = useState<Alphabet[]>([...alphabetInit]);
@@ -88,7 +88,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
       positionLetterHide: [0, 0],
     });
     setLife({
-      max: 3,
+      max: 8,
       value: 0,
     });
     setAlphabet(alphabetInit);
